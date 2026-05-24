@@ -1,0 +1,27 @@
+name: AURA Realtime Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify Node
+        run: node -v
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Fetcher
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: node scripts/fetch-news.js
