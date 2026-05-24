@@ -13,7 +13,7 @@ import { scoreNews } from "./helpers/scoreNews.js";
 import { detectDistrict } from "./helpers/detectDistrict.js";
 import { isValidArticle } from "./helpers/isValidArticle.js";
 import { extractTopics } from "./helpers/extractTopics.js";
-import ws from "ws";
+
 
 const parser = new Parser();
 
@@ -21,8 +21,12 @@ const supabase = createClient(
   process.env.VITE_SUPABASE_URL,
   process.env.VITE_SUPABASE_ANON_KEY,
   {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
     realtime: {
-      transport: ws,
+      disabled: true,
     },
   }
 );
