@@ -1,0 +1,20 @@
+{
+  "name": "AURA",
+  "short_name": "AURA",
+  "description": "India's #1 News & Jobs App - Local news in 8+ languages, govt jobs, tech updates",
+  "start_url": "/home",
+  "display": "standalone",
+  "background_color": "#0a0a1a",
+  "theme_color": "#0a0a1a",
+  "orientation": "portrait",
+  "categories": ["news", "education"],
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
